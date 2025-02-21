@@ -28,6 +28,14 @@ export const revalidate = 3
 // Next.js will server-render the page on-demand.
 export const dynamicParams = true // or false, to 404 on unknown paths
 
+// force-cached -> cached => website static
+// no-store => website realtime data => streaming
+// isr => { revalidate } => website static => sering ada perubahan => storage
+
+// /about -> api/me
+// /profile -> api/me
+// isr => { }
+
 export async function generateStaticParams() {
   const notes: Notes = await fetch(
     'https://service.pace-unv.cloud/api/notes',
