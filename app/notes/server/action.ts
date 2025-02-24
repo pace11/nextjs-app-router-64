@@ -24,6 +24,7 @@ export async function createNote(
     description: formData.get('description'),
   })
 
+  // tidak lolos validasi
   if (!parse.success) {
     const fieldErrors: FieldErrors = parse.error.formErrors.fieldErrors || {}
     const errors = Object.keys(fieldErrors)?.reduce((acc, key) => {
@@ -46,5 +47,23 @@ export async function createNote(
     return { message: 'Added notes successfully' }
   } catch (error) {
     return { message: 'Failed to create notes' }
+  }
+}
+
+export async function deleteNote(
+  prevState: {
+    message: string
+    errors: object
+  },
+  formData: FormData,
+) {
+  const value = {
+    title: formData.get('title'),
+    description: formData.get('description'),
+  }
+
+  console.log('value form', value)
+  return {
+    message: 'berhasil',
   }
 }

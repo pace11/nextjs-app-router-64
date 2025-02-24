@@ -2,7 +2,7 @@
 
 import { useActionState } from 'react'
 import { useFormStatus } from 'react-dom'
-import { createNote } from './action'
+import { deleteNote } from './action'
 
 const initialState = {
   message: '',
@@ -27,7 +27,8 @@ function SubmitButton() {
 }
 
 export default function CreateForm() {
-  const [state, formAction] = useActionState(createNote, initialState)
+  // state => response, formAction => request
+  const [state, formAction] = useActionState(deleteNote, initialState)
 
   return (
     <div className="max-w mx-auto p-6 bg-white shadow-lg rounded-lg mb-10 sticky top-0">
