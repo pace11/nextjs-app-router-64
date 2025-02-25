@@ -1,14 +1,16 @@
 'use client'
 
 import Link from 'next/link'
-import { useCount } from '@/context'
+// import { useCount } from '@/context'
+import { dataStore } from '@/store/dataStore'
 
 export default function MainLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
-  const { count } = useCount()
+  // const { count } = useCount()
+  const { count } = dataStore()
 
   return (
     <>
